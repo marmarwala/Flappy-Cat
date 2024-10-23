@@ -6,11 +6,11 @@ let cat, pipes, bubbles, score, highScore, coinCount, currentCatIndex, groundY;
 let gameState, lastTime, deltaTime;
 
 const GAME_STATE = { MENU: 0, PLAYING: 1, GAME_OVER: 2 };
-const GRAVITY = 0.18; // Increased by 20% from 0.15
-const JUMP_STRENGTH = -4.8; // Increased strength by 20% from -4
+const GRAVITY = 0.198; // Increased by 10% from 0.18
+const JUMP_STRENGTH = -5.28; // Increased strength by 10% from -4.8
 const PIPE_WIDTH = 100; // Increased from 80
-const PIPE_GAP = 250; // Increased from 220
-const PIPE_SPEED = 1.17; // Increased by 20% from 0.975
+const PIPE_GAP = 220; // Decreased from 250 to make pipes closer vertically
+const PIPE_SPEED = 1.287; // Increased by 10% from 1.17
 const COIN_SIZE = 30;
 const COIN_SPEED = 1.5;
 
@@ -70,8 +70,8 @@ function updateCat() {
 }
 
 function updatePipes() {
-    if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 350) { // Increased from 300
-        let pipeHeight = Math.random() * (groundY - PIPE_GAP - 250) + 150; // Adjusted for bigger gap
+    if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 350) {
+        let pipeHeight = Math.random() * (groundY - PIPE_GAP - 200) + 100; // Adjusted for smaller gap
         pipes.push({ x: canvas.width, height: pipeHeight });
     }
 
