@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Flappy Cat</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            touch-action: manipulation;
+        }
+        #gameContainer {
+            position: relative;
+            width: 100%;
+            max-width: 500px; /* Increased from 450px */
+            margin: 0 auto;
+        }
+        #gameCanvas {
+            border: 3px solid #333;
+            border-radius: 10px;
+            width: 100%;
+            height: auto;
+            display: block;
+            touch-action: none;
+        }
+        h1 {
+            color: #333;
+            margin: 10px 0;
+            font-size: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <h1>Flappy Cat</h1>
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    <script src="flappy_cat.js" defer></script>
+</body>
+</html>
