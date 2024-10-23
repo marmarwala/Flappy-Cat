@@ -6,11 +6,11 @@ let cat, pipes, bubbles, score, highScore, coinCount, currentCatIndex, groundY;
 let gameState, lastTime, deltaTime;
 
 const GAME_STATE = { MENU: 0, PLAYING: 1, GAME_OVER: 2 };
-const GRAVITY = 0.198; // Increased by 10% from 0.18
-const JUMP_STRENGTH = -5.28; // Increased strength by 10% from -4.8
-const PIPE_WIDTH = 100; // Increased from 80
-const PIPE_GAP = 220; // Decreased from 250 to make pipes closer vertically
-const PIPE_SPEED = 1.287; // Increased by 10% from 1.17
+const GRAVITY = 0.2178; // Increased by another 10% from 0.198
+const JUMP_STRENGTH = -5.808; // Increased strength by another 10% from -5.28
+const PIPE_WIDTH = 100; // Keep this the same
+const PIPE_GAP = 200; // Decreased from 220 to make pipes even closer vertically
+const PIPE_SPEED = 1.4157; // Increased by another 10% from 1.287
 const COIN_SIZE = 30;
 const COIN_SPEED = 1.5;
 
@@ -71,7 +71,7 @@ function updateCat() {
 
 function updatePipes() {
     if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 350) {
-        let pipeHeight = Math.random() * (groundY - PIPE_GAP - 200) + 100; // Adjusted for smaller gap
+        let pipeHeight = Math.random() * (groundY - PIPE_GAP - 180) + 90; // Adjusted for even smaller gap
         pipes.push({ x: canvas.width, height: pipeHeight });
     }
 
@@ -94,7 +94,7 @@ function updateBubbles() {
 }
 
 function checkCollisions() {
-    const catHitboxReduction = cat.size * 0.25; // Adjusted for larger cat
+    const catHitboxReduction = cat.size * 0.2; // Slightly reduced from 0.25 to make hitbox more precise
     const catLeft = cat.x + catHitboxReduction;
     const catRight = cat.x + cat.size - catHitboxReduction;
     const catTop = cat.y + catHitboxReduction;
@@ -319,7 +319,7 @@ function startGame() {
     cat = {
         x: canvas.width * 0.2,
         y: canvas.height / 2,
-        size: canvas.width * 0.13, // Changed from 0.15 to 0.13 (13% of canvas width)
+        size: canvas.width * 0.13,
         velocity: 0
     };
     pipes = [];
