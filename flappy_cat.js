@@ -6,13 +6,14 @@ let cat, pipes, bubbles, score, highScore, coinCount, currentCatIndex, groundY;
 let gameState, lastTime, deltaTime;
 
 const GAME_STATE = { MENU: 0, PLAYING: 1, GAME_OVER: 2 };
-const GRAVITY = 0.2178; // Increased by another 10% from 0.198
-const JUMP_STRENGTH = -5.808; // Increased strength by another 10% from -5.28
+const GRAVITY = 0.2178; // Keep this the same
+const JUMP_STRENGTH = -5.808; // Keep this the same
 const PIPE_WIDTH = 100; // Keep this the same
-const PIPE_GAP = 200; // Decreased from 220 to make pipes even closer vertically
-const PIPE_SPEED = 1.4157; // Increased by another 10% from 1.287
+const PIPE_GAP = 200; // Keep this the same
+const PIPE_SPEED = 1.4157; // Keep this the same
 const COIN_SIZE = 30;
 const COIN_SPEED = 1.5;
+const PIPE_SPAWN_DISTANCE = 300; // New constant for horizontal pipe spacing (reduced from 350)
 
 const catEmojis = ['🐱', '😺', '😸', '😻', '😽'];
 
@@ -70,8 +71,8 @@ function updateCat() {
 }
 
 function updatePipes() {
-    if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 350) {
-        let pipeHeight = Math.random() * (groundY - PIPE_GAP - 180) + 90; // Adjusted for even smaller gap
+    if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - PIPE_SPAWN_DISTANCE) {
+        let pipeHeight = Math.random() * (groundY - PIPE_GAP - 180) + 90;
         pipes.push({ x: canvas.width, height: pipeHeight });
     }
 
